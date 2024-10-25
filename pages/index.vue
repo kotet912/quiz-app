@@ -5,6 +5,7 @@
       :question="currentQuestion"
       @answerSelected="handleAnswer"
     />
+    <ProgressBar :progress="progress" />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import { useQuizStore } from '@/stores/quiz';
 import { onMounted, computed } from 'vue';
 import QuizQuestion from '@/components/QuizQuestion.vue';
+import ProgressBar from '@/components/ProgressBar.vue';
 
 const quizStore = useQuizStore();
 
@@ -21,6 +23,11 @@ onMounted(() => {
 
 const currentQuestion = computed(
   () => quizStore.questions[quizStore.currentQuestionIndex]
+);
+
+const progress = computed(
+  () =>
+    ((quizStore.currentQuestionIndex + 1) / quizStore.questions.length) * 100
 );
 
 const handleAnswer = (answerIndex) => {
