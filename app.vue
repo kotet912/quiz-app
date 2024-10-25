@@ -1,9 +1,9 @@
 <template>
   <div>
-    <QuizQuestion></QuizQuestion>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
-<script setup>
-import QuizQuestion from '@/components/QuizQuestion.vue';
-</script>
+<script setup></script>
