@@ -10,7 +10,10 @@
       >
         <p class="results__question">{{ question.question }}</p>
         <p class="results__user-answer">
-          {{ question.answers[quizStore.userAnswers[index]].text }}
+          {{
+            question.answers[quizStore.userAnswers[index]]?.text ||
+            'Ответ не выбран'
+          }}
         </p>
       </li>
     </ul>
