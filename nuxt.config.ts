@@ -2,7 +2,9 @@
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-
+  css: [
+    'normalize.css/normalize.css'
+  ],
   modules: [
     '@pinia/nuxt',
   ],

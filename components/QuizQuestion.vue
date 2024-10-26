@@ -31,11 +31,6 @@ const selectAnswer = (index) => {
 </script>
 
 <style lang="scss" scoped>
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
 li {
   margin-bottom: 20px;
   cursor: pointer;
@@ -50,6 +45,7 @@ li {
     font-size: 24px;
     font-weight: 700;
     line-height: 29px;
+    margin-bottom: 20px;
   }
   &__circle {
     min-width: 20px;

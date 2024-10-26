@@ -7,6 +7,7 @@
       @answerSelected="handleAnswer"
     />
     <ProgressBar
+      v-if="currentQuestion"
       :progress="progress"
       :currentQuestion="quizStore.currentQuestionIndex"
       :totalQuestions="quizStore.questions.length + 1"

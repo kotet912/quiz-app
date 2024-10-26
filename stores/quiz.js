@@ -45,5 +45,9 @@ export const useQuizStore = defineStore('quiz', {
         };
       });
     },
+    $reset () {
+      this.currentQuestionIndex = 0;
+      this.userAnswers = [];
+    },
   },
 });
