@@ -6,7 +6,11 @@
       :question="currentQuestion"
       @answerSelected="handleAnswer"
     />
-    <ProgressBar :progress="progress" />
+    <ProgressBar
+      :progress="progress"
+      :currentQuestion="quizStore.currentQuestionIndex"
+      :totalQuestions="quizStore.questions.length + 1"
+    />
   </div>
 </template>
 
