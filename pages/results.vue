@@ -14,7 +14,13 @@
         </p>
       </li>
     </ul>
-    <button class="results__btn" @click="restartQuiz">Пройти еще раз</button>
+    <button
+      v-if="correctAnswersCount !== quizStore.questions.length"
+      class="results__btn"
+      @click="restartQuiz"
+    >
+      Пройти еще раз
+    </button>
   </div>
 </template>
 
@@ -64,7 +70,6 @@ const restartQuiz = () => {
   router.push('/');
 };
 </script>
-
 <style lang="scss" scoped>
 .results {
   padding: 75px 270px;
@@ -100,10 +105,16 @@ const restartQuiz = () => {
     }
   }
 
-  &__question,
-  &__user-answer,
-  &__correct-answer {
-    margin: 5px 0;
+  &__question {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 15px;
+  }
+  &__user-answer {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
   }
 
   &__btn {
@@ -118,6 +129,7 @@ const restartQuiz = () => {
     width: 220px;
     height: 54px;
     margin: auto;
+    margin-top: 20px;
     cursor: pointer;
   }
 }
