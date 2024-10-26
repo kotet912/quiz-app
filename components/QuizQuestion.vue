@@ -6,7 +6,10 @@
         v-for="(answer, index) in question.answers"
         :key="index"
         @click="selectAnswer(index)"
-        class="quiz-question__answers"
+        :class="[
+          'quiz-question__answers',
+          { 'quiz-question__answers_active': selectedAnswerIndex === index }
+        ]"
       >
         <div class="quiz-question__circle"></div>
         {{ answer.text }}
@@ -16,6 +19,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 defineProps({
   question: {
     type: Object,
@@ -24,9 +29,14 @@ defineProps({
 });
 
 const emit = defineEmits(['answerSelected']);
+const selectedAnswerIndex = ref(null);
 
 const selectAnswer = (index) => {
+  selectedAnswerIndex.value = index;
   emit('answerSelected', index);
+  setTimeout(() => {
+    selectedAnswerIndex.value = null;
+  }, 1000);
 };
 </script>
 
@@ -62,6 +72,15 @@ li {
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
+    &:active,
+    &:focus,
+    &:hover,
+    &_active {
+      .quiz-question__circle {
+        border: 1px solid rgb(51, 0, 255);
+        background: rgb(51, 0, 255);
+      }
+    }
   }
 }
 </style>
