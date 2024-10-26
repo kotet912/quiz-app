@@ -6,7 +6,9 @@
     </div>
     <div class="progress-bar__line">
       <div class="progress-bar__inner" :style="{ width: progress + '%' }">
-        <span class="progress-bar__text">{{ currentQuestion }}</span>
+        <span class="progress-bar__text">{{
+          currentQuestion !== 0 ? currentQuestion : ''
+        }}</span>
       </div>
     </div>
   </div>

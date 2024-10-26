@@ -7,7 +7,6 @@
       @answerSelected="handleAnswer"
     />
     <ProgressBar
-      v-if="currentQuestion"
       :progress="progress"
       :currentQuestion="quizStore.currentQuestionIndex"
       :totalQuestions="quizStore.questions.length + 1"
@@ -35,9 +34,7 @@ const currentQuestion = computed(() => {
 });
 
 const progress = computed(() => {
-  return (
-    ((quizStore.currentQuestionIndex + 1) / quizStore.questions.length) * 100
-  );
+  return (quizStore.currentQuestionIndex / quizStore.questions.length) * 100;
 });
 
 const handleAnswer = (answerIndex) => {
