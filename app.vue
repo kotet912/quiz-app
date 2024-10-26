@@ -7,3 +7,8 @@
 </template>
 
 <script setup></script>
+<style>
+body {
+  font-family: Montserrat;
+}
+</style>
