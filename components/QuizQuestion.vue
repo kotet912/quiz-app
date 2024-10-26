@@ -32,6 +32,7 @@ const emit = defineEmits(['answerSelected']);
 const selectedAnswerIndex = ref(null);
 
 const selectAnswer = (index) => {
+  if (selectedAnswerIndex.value !== null) return;
   selectedAnswerIndex.value = index;
   emit('answerSelected', index);
   setTimeout(() => {

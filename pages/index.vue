@@ -9,7 +9,7 @@
     <ProgressBar
       :progress="progress"
       :currentQuestion="quizStore.currentQuestionIndex"
-      :totalQuestions="quizStore.questions.length + 1"
+      :totalQuestions="quizStore.questions.length"
     />
   </div>
 </template>
